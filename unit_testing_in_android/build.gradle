@@ -1,0 +1,38 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 31
+
+
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 31
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+
+    }
+
+    buildTypes {
+        release {
+            postprocessing {
+                removeUnusedCode false
+                removeUnusedResources false
+                obfuscate false
+                optimizeCode false
+                proguardFile 'proguard-rules.pro'
+            }
+        }
+    }
+    namespace 'com.techyourchance.unittestinginandroid'
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'androidx.core:core:1.0.0'
+
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.mockito:mockito-core:2.18.3'
+}
